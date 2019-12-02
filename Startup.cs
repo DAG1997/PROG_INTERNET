@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using PROJETO_PNET.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PROJETO_PNET.Models;
 
 namespace PROJETO_PNET
 {

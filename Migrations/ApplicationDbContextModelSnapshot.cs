@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROJETO_PNET.Data;
 
-namespace PROJETO_PNET.Data.Migrations
+namespace PROJETO_PNET.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -182,6 +182,40 @@ namespace PROJETO_PNET.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("PROJETO_PNET.Models.Cargos", b =>
+                {
+                    b.Property<int>("CargosId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Funcao")
+                        .IsRequired();
+
+                    b.Property<string>("NomeCargo")
+                        .IsRequired();
+
+                    b.HasKey("CargosId");
+
+                    b.ToTable("Cargos");
+                });
+
+            modelBuilder.Entity("PROJETO_PNET.Models.Funcionarios", b =>
+                {
+                    b.Property<int>("FuncionariosId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("FuncionariosId");
+
+                    b.ToTable("Funcionarios");
                 });
 
             modelBuilder.Entity("PROJETO_PNET.Models.Professores", b =>

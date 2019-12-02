@@ -76,6 +76,22 @@ namespace PROJETO_PNET.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Professores",
+                columns: table => new
+                {
+                    professoresId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: true),
+                    Numero = table.Column<string>(nullable: true),
+                    Aulas = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Professores", x => x.professoresId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -243,6 +259,9 @@ namespace PROJETO_PNET.Migrations
 
             migrationBuilder.DropTable(
                 name: "Funcionarios");
+
+            migrationBuilder.DropTable(
+                name: "Professores");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

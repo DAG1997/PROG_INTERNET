@@ -10,7 +10,7 @@ using PROJETO_PNET.Data;
 namespace PROJETO_PNET.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191202113731_initial")]
+    [Migration("20191202115637_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -218,6 +218,25 @@ namespace PROJETO_PNET.Migrations
                     b.HasKey("FuncionariosId");
 
                     b.ToTable("Funcionarios");
+                });
+
+            modelBuilder.Entity("PROJETO_PNET.Models.Professores", b =>
+                {
+                    b.Property<int>("professoresId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Aulas");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<string>("Numero");
+
+                    b.HasKey("professoresId");
+
+                    b.ToTable("Professores");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

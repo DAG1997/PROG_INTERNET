@@ -12,6 +12,9 @@ namespace PROJETO_PNET.Data
             : base(options)
         {
         }
+
         public DbSet<PROJETO_PNET.Models.Professores> Professores { get; set; }
+        public DbSet<PROJETO_PNET.Models.Funcionarios>Funcionarios { get; set; }
+        public DbSet<PROJETO_PNET.Models.Cargos> Cargos { get; set; }
     }
 }

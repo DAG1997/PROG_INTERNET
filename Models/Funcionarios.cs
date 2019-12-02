@@ -11,6 +11,7 @@ namespace PROJETO_PNET.Models {
         public int FuncionariosId { get; set; }
 
         [Required(ErrorMessage = "Please enter your name")]
+        [StringLength(50, MinimumLength = 3)]
         public string Nome { get; set; }
 
         [EmailAddress]

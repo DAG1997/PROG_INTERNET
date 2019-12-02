@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PROJETO_PNET.Models {
     public class Cargos {
-        public int IdCargos { get; set; }
+        public int CargosId { get; set; }
 
         [Required]
         public string NomeCargo { get; set; }

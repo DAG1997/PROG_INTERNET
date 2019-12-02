@@ -7,7 +7,7 @@ namespace PROJETO_PNET.Models
 {
     public class Professores
     {
-        public int IDprofessores { get; set; }
+        public int professoresId { get; set; }
 
         public string Nome { get; set; }
 

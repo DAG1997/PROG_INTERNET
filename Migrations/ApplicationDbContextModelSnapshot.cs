@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROJETO_PNET.Data;
 
-namespace PROJETO_PNET.Data.Migrations
+namespace PROJETO_PNET.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191202001138_Cargos")]
-    partial class Cargos
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,6 +199,23 @@ namespace PROJETO_PNET.Data.Migrations
                     b.HasKey("CargosId");
 
                     b.ToTable("Cargos");
+                });
+
+            modelBuilder.Entity("PROJETO_PNET.Models.Funcionarios", b =>
+                {
+                    b.Property<int>("FuncionariosId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("FuncionariosId");
+
+                    b.ToTable("Funcionarios");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

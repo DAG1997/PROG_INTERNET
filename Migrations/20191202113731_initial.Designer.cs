@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROJETO_PNET.Data;
 
-namespace PROJETO_PNET.Data.Migrations
+namespace PROJETO_PNET.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191202113731_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,6 +186,23 @@ namespace PROJETO_PNET.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("PROJETO_PNET.Models.Cargos", b =>
+                {
+                    b.Property<int>("CargosId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Funcao")
+                        .IsRequired();
+
+                    b.Property<string>("NomeCargo")
+                        .IsRequired();
+
+                    b.HasKey("CargosId");
+
+                    b.ToTable("Cargos");
+                });
+
             modelBuilder.Entity("PROJETO_PNET.Models.Funcionarios", b =>
                 {
                     b.Property<int>("FuncionariosId")
@@ -193,7 +212,8 @@ namespace PROJETO_PNET.Data.Migrations
                     b.Property<string>("Email");
 
                     b.Property<string>("Nome")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.HasKey("FuncionariosId");
 

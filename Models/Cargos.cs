@@ -8,10 +8,12 @@ namespace PROJETO_PNET.Models {
     public class Cargos {
         public int CargosId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Por favor introuza um cargo! ")]
+        [StringLength(50, MinimumLength = 3)]
         public string NomeCargo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " Por favor introduza uma função!")]
+        [StringLength(50, MinimumLength = 3)]
 
         public string Funcao  { get; set; }
 

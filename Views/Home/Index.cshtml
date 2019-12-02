@@ -46,16 +46,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">Home</a>
+                    <a class="nav-link js-scroll-trigger" href="#Inicio">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#experience">Sobre</a>
+                    <a class="nav-link js-scroll-trigger" href="#Cargos">Cargos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#education">Serviços Académicos</a>
+                    <a class="nav-link js-scroll-trigger" href="#Professores">Professores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#skills">Contactos</a>
+                    <a class="nav-link js-scroll-trigger" href="#funcionarios">Funcionarios</a>
                 </li>
                 <li
 
@@ -77,45 +77,54 @@
 
     <div class="container-fluid p-0">
 
-        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="Inicio">
             <div class="w-100">
-                <h1 class="mb-0">
-                    Clarence
-                    <span class="text-primary">Taylor</span>
-                </h1>
-                <div class="subheading mb-5">
-                    3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-                    <a href="mailto:name@email.com">name@email.com</a>
-                </div>
-                <p class="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-                <div class="social-icons">
-                    <a href="#">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </div>
+                <h1>Gestão de Tarefas</h1>
+
             </div>
         </section>
 
         <hr class="m-0">
 
-        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="Cargos">
             <div class="w-100">
-                <h2 class="mb-5">Experience</h2>
+                <h2 class="mb-5">Cargos</h2>
 
                 <a asp-controller="Cargos" asp-action="Index" class="btn btn-outline-dark">Cargos</a>
 
-                
 
-          
+
+
+            </div>
+
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="Professores">
+            <div class="w-100">
+                <h2 class="mb-5">Professores</h2>
+
+                <a asp-controller="Professores" asp-action="Index" class="btn btn-outline-dark">Funcionarios</a>
+
+
+
+
+            </div>
+
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="Funcionarios">
+            <div class="w-100">
+                <h2 class="mb-5">Funcionarios</h2>
+
+                <a asp-controller="Funcionarios" asp-action="Index" class="btn btn-outline-dark">Funcionarios</a>
+
+
+
+
             </div>
 
         </section>

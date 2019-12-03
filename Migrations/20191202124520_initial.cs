@@ -53,8 +53,8 @@ namespace PROJETO_PNET.Migrations
                 {
                     CargosId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NomeCargo = table.Column<string>(nullable: false),
-                    Funcao = table.Column<string>(nullable: false)
+                    NomeCargo = table.Column<string>(maxLength: 50, nullable: false),
+                    Funcao = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {

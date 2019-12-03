@@ -10,8 +10,8 @@ using PROJETO_PNET.Data;
 namespace PROJETO_PNET.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191202115637_initial")]
-    partial class initial
+    [Migration("20191202124709_Funcionarios")]
+    partial class Funcionarios
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -193,10 +193,12 @@ namespace PROJETO_PNET.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Funcao")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<string>("NomeCargo")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.HasKey("CargosId");
 

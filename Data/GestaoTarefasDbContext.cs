@@ -6,11 +6,15 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROJETO_PNET.Data {
-    public class PROGNETDbContext : IdentityDbContext {
-        public PROGNETDbContext(DbContextOptions<PROGNETDbContext> options)
+    public class GestaoTarefasDbContext : IdentityDbContext {
+        public GestaoTarefasDbContext(DbContextOptions<GestaoTarefasDbContext> options)
             : base(options) {
         }
 
         public DbSet<PROJETO_PNET.Models.Cargos> Cargos { get; set; }
+
+
     }
 }
+
+

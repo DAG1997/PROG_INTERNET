@@ -12,9 +12,9 @@ namespace PROJETO_PNET.Controllers
 {
     public class CargosController : Controller
     {
-        private readonly GestaoTarefasDbContext _context;
+        private readonly TarefasDbContext _context;
 
-        public CargosController(GestaoTarefasDbContext context)
+        public CargosController(TarefasDbContext context)
         {
             _context = context;
         }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PROJETO_PNET.Models;
 
 namespace PROJETO_PNET.Data {
    
@@ -13,6 +14,8 @@ namespace PROJETO_PNET.Data {
             }
 
             public DbSet<PROJETO_PNET.Models.Cargos> Cargos { get; set; }
+
+            public DbSet<PROJETO_PNET.Models.Funcionarios> Funcionarios { get; set; }
 
 
         }

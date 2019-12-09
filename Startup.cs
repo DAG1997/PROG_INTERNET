@@ -36,12 +36,12 @@ namespace PROJETO_PNET
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<GestaoTarefasDbContext>(options =>
+            services.AddDbContext<IpgDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("ConnectionStringGestaoTarefas")));
+                    Configuration.GetConnectionString("ConnectionStringIpg")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<GestaoTarefasDbContext>();
+                .AddEntityFrameworkStores<IpgDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

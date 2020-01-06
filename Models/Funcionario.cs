@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROJETO_PNET.Models {
-    public class Funcionarios {
+    public class Funcionario {
 
         [Required(ErrorMessage = "Please enter your ID")]
-        public int FuncionariosId { get; set; }
+        public int FuncionarioId { get; set; }
 
         [Required(ErrorMessage = "Please enter your name")]
         [StringLength(50, MinimumLength = 3)]

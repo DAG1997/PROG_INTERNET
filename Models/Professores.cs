@@ -9,7 +9,7 @@ namespace PROJETO_PNET.Models
     public class Professores
     {
         [Required(ErrorMessage = "Please enter your ID")]
-        public int ProfessoresId { get; set; }
+        public int professoresId { get; set; }
 
         [Required(ErrorMessage = "Please enter your name")]
         [StringLength(50, MinimumLength = 3)]

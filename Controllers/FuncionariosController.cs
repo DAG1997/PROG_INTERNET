@@ -10,22 +10,22 @@ using PROJETO_PNET.Models;
 
 namespace PROJETO_PNET.Controllers
 {
-    public class CargosController : Controller
+    public class FuncionariosController : Controller
     {
         private readonly TarefasDbContext _context;
 
-        public CargosController(TarefasDbContext context)
+        public FuncionariosController(TarefasDbContext context)
         {
             _context = context;
         }
 
-        // GET: Cargos
+        // GET: Funcionarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Cargos.ToListAsync());
+            return View(await _context.Funcionarios.ToListAsync());
         }
 
-        // GET: Cargos/Details/5
+        // GET: Funcionarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace PROJETO_PNET.Controllers
                 return NotFound();
             }
 
-            var cargos = await _context.Cargos
-                .FirstOrDefaultAsync(m => m.CargosId == id);
-            if (cargos == null)
+            var funcionario = await _context.Funcionarios
+                .FirstOrDefaultAsync(m => m.FuncionarioId == id);
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
-            return View(cargos);
+            return View(funcionario);
         }
 
-        // GET: Cargos/Create
+        // GET: Funcionarios/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Cargos/Create
+        // POST: Funcionarios/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CargosId,NomeCargo,Funcao")] Cargos cargos)
+        public async Task<IActionResult> Create([Bind("FuncionarioId,Nome,Email")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cargos);
+                _context.Add(funcionario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(cargos);
+            return View(funcionario);
         }
 
-        // GET: Cargos/Edit/5
+        // GET: Funcionarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace PROJETO_PNET.Controllers
                 return NotFound();
             }
 
-            var cargos = await _context.Cargos.FindAsync(id);
-            if (cargos == null)
+            var funcionario = await _context.Funcionarios.FindAsync(id);
+            if (funcionario == null)
             {
                 return NotFound();
             }
-            return View(cargos);
+            return View(funcionario);
         }
 
-        // POST: Cargos/Edit/5
+        // POST: Funcionarios/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CargosId,NomeCargo,Funcao")] Cargos cargos)
+        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,Nome,Email")] Funcionario funcionario)
         {
-            if (id != cargos.CargosId)
+            if (id != funcionario.FuncionarioId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace PROJETO_PNET.Controllers
             {
                 try
                 {
-                    _context.Update(cargos);
+                    _context.Update(funcionario);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CargosExists(cargos.CargosId))
+                    if (!FuncionarioExists(funcionario.FuncionarioId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace PROJETO_PNET.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(cargos);
+            return View(funcionario);
         }
 
-        // GET: Cargos/Delete/5
+        // GET: Funcionarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace PROJETO_PNET.Controllers
                 return NotFound();
             }
 
-            var cargos = await _context.Cargos
-                .FirstOrDefaultAsync(m => m.CargosId == id);
-            if (cargos == null)
+            var funcionario = await _context.Funcionarios
+                .FirstOrDefaultAsync(m => m.FuncionarioId == id);
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
-            return View(cargos);
+            return View(funcionario);
         }
 
-        // POST: Cargos/Delete/5
+        // POST: Funcionarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var cargos = await _context.Cargos.FindAsync(id);
-            _context.Cargos.Remove(cargos);
+            var funcionario = await _context.Funcionarios.FindAsync(id);
+            _context.Funcionarios.Remove(funcionario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CargosExists(int id)
+        private bool FuncionarioExists(int id)
         {
-            return _context.Cargos.Any(e => e.CargosId == id);
+            return _context.Funcionarios.Any(e => e.FuncionarioId == id);
         }
     }
 }

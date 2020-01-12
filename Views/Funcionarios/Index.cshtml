@@ -1,7 +1,8 @@
-﻿@model IEnumerable<PROJETO_PNET.Models.Professores>
+﻿@model IEnumerable<PROJETO_PNET.Models.Funcionario>
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
@@ -16,12 +17,6 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Numero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aulas)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th></th>
@@ -34,18 +29,12 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aulas)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.professoresId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.professoresId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.professoresId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.FuncionarioId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FuncionarioId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FuncionarioId">Delete</a>
             </td>
         </tr>
 }

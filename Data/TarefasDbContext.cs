@@ -17,6 +17,8 @@ namespace PROJETO_PNET.Data {
 
             public DbSet<PROJETO_PNET.Models.Funcionario> Funcionarios { get; set; }
 
+            public DbSet<PROJETO_PNET.Models.Professores> Professores { get; set; }
+
          
 
 

@@ -18,9 +18,6 @@ namespace PROJETO_PNET.Models
         [Required(ErrorMessage = "Please enter your number")]
         public string Numero { get; set; }
 
-        [Required(ErrorMessage = "Please enter your classes")]
-        public string Aulas { get; set; }
-
         [Required(ErrorMessage = "Please enter your Email")]
         public string Email { get; set; }
 

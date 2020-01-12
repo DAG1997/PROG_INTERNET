@@ -16,5 +16,12 @@ namespace PROJETO_PNET.Models {
 
         [EmailAddress]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Enter Cargo")]
+        public int CargosId { get; set; }
+        public Cargos Cargos { get; set; }
+
+        
+
     }
 }

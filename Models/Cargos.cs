@@ -17,7 +17,7 @@ namespace PROJETO_PNET.Models {
 
         public string Funcao  { get; set; }
 
-        public ICollection<Cargos> Cargo;
+        public ICollection<Funcionario> Funcionarios;
         
     }
 }

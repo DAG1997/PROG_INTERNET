@@ -22,7 +22,8 @@ namespace PROJETO_PNET.Controllers
         // GET: Funcionarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Funcionarios.ToListAsync());
+            var tarefasDbContext = _context.Funcionarios.Include(f => f.Cargos);
+            return View(await tarefasDbContext.ToListAsync());
         }
 
         // GET: Funcionarios/Details/5
@@ -34,6 +35,7 @@ namespace PROJETO_PNET.Controllers
             }
 
             var funcionario = await _context.Funcionarios
+                .Include(f => f.Cargos)
                 .FirstOrDefaultAsync(m => m.FuncionarioId == id);
             if (funcionario == null)
             {
@@ -46,6 +48,7 @@ namespace PROJETO_PNET.Controllers
         // GET: Funcionarios/Create
         public IActionResult Create()
         {
+            ViewData["CargosId"] = new SelectList(_context.Cargos, "CargosId", "Funcao");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace PROJETO_PNET.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FuncionarioId,Nome,Email")] Funcionario funcionario)
+        public async Task<IActionResult> Create([Bind("FuncionarioId,Nome,Email,CargosId")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace PROJETO_PNET.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CargosId"] = new SelectList(_context.Cargos, "CargosId", "Funcao", funcionario.CargosId);
             return View(funcionario);
         }
 
@@ -78,6 +82,7 @@ namespace PROJETO_PNET.Controllers
             {
                 return NotFound();
             }
+            ViewData["CargosId"] = new SelectList(_context.Cargos, "CargosId", "Funcao", funcionario.CargosId);
             return View(funcionario);
         }
 
@@ -86,7 +91,7 @@ namespace PROJETO_PNET.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,Nome,Email")] Funcionario funcionario)
+        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,Nome,Email,CargosId")] Funcionario funcionario)
         {
             if (id != funcionario.FuncionarioId)
             {
@@ -113,6 +118,7 @@ namespace PROJETO_PNET.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CargosId"] = new SelectList(_context.Cargos, "CargosId", "Funcao", funcionario.CargosId);
             return View(funcionario);
         }
 
@@ -125,6 +131,7 @@ namespace PROJETO_PNET.Controllers
             }
 
             var funcionario = await _context.Funcionarios
+                .Include(f => f.Cargos)
                 .FirstOrDefaultAsync(m => m.FuncionarioId == id);
             if (funcionario == null)
             {

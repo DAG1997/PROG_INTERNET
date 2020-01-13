@@ -20,13 +20,23 @@ namespace PROJETO_PNET.Controllers
         }
 
         // GET: Cargos
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder,
+    string currentFilter,
+    string searchString,
+    int? pageNumber)
         {
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["CurrentFilter"] = searchString;
 
             var tarefasDbContext = from s in _context.Cargos
                            select s;
+            if (searchString != null) {
+                pageNumber = 1;
+            } else {
+                searchString = currentFilter;
+            }
+
             if (!String.IsNullOrEmpty(searchString)) {
                 tarefasDbContext = tarefasDbContext.Where(s => s.NomeCargo.Contains(searchString)
                                        || s.Funcao.Contains(searchString));
@@ -40,19 +50,24 @@ namespace PROJETO_PNET.Controllers
                 case "Date":
                     tarefasDbContext = tarefasDbContext.OrderBy(s => s.Funcao);
                     break;
-                
+
                 default:
                     tarefasDbContext = tarefasDbContext.OrderBy(s => s.NomeCargo);
                     break;
+
+                    return View(await tarefasDbContext.AsNoTracking().ToListAsync());
+
             }
-            return View(await tarefasDbContext.AsNoTracking().ToListAsync());
-            
-        }
+            int pageSize = 3;
+            return View(await PaginatedList<Cargos>.CreateAsync(tarefasDbContext.AsNoTracking(), pageNumber ?? 1, pageSize));
+        
+
+    }
 
 
 
-        // GET: Cargos/Details/5
-        public async Task<IActionResult> Details(int? id)
+    // GET: Cargos/Details/5
+    public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {

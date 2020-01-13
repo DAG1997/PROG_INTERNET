@@ -20,9 +20,33 @@ namespace PROJETO_PNET.Controllers
         }
 
         // GET: Professores
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(String sortOrder, string searchString)
         {
-            return View(await _context.Professores.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
+            var tarefasDbContext = from s in _context.Professores
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tarefasDbContext = tarefasDbContext.Where(s => s.Nome.Contains(searchString));
+                                       
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    tarefasDbContext = tarefasDbContext.OrderByDescending(s => s.Nome);
+                    break;
+                case "numero":
+                    tarefasDbContext = tarefasDbContext.OrderByDescending(s => s.Numero);
+                    break;
+                case "email":
+                    tarefasDbContext = tarefasDbContext.OrderByDescending(s => s.Email);
+                    break;
+                default:
+                    tarefasDbContext = tarefasDbContext.OrderBy(s => s.Nome);
+                    break;
+            }
+            return View(await tarefasDbContext.AsNoTracking().ToListAsync());
         }
 
         // GET: Professores/Details/5

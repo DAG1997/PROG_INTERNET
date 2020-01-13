@@ -20,10 +20,21 @@ namespace PROJETO_PNET.Controllers
         }
 
         // GET: Professores
-        public async Task<IActionResult> Index(String sortOrder, string searchString)
+        public async Task<IActionResult> Index(String sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             var tarefasDbContext = from s in _context.Professores
                            select s;
             if (!String.IsNullOrEmpty(searchString))
@@ -46,8 +57,9 @@ namespace PROJETO_PNET.Controllers
                     tarefasDbContext = tarefasDbContext.OrderBy(s => s.Nome);
                     break;
             }
-            return View(await tarefasDbContext.AsNoTracking().ToListAsync());
-        }
+            int pageSize = 3;
+            return View(await PaginatedList<Professores>.CreateAsync(tarefasDbContext.AsNoTracking(), pageNumber ?? 1, pageSize));
+    }
 
         // GET: Professores/Details/5
         public async Task<IActionResult> Details(int? id)

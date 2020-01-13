@@ -20,16 +20,25 @@ namespace PROJETO_PNET.Controllers
         }
 
         // GET: Funcionarios
-        public async Task<IActionResult> Index(String sortOrder, string searchString)
+        public async Task<IActionResult> Index(String sortOrder, string currentFilter, string searchString , int? pageNumber)
         {
-            
 
 
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "cargos" : "";
             ViewData["CurrentFilter"] = searchString;
             var tarefasDbContext = from s in _context.Funcionarios.Include(f => f.Cargos)
                                     select s;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -48,9 +57,12 @@ namespace PROJETO_PNET.Controllers
                     tarefasDbContext = tarefasDbContext.OrderBy(s => s.Nome);
                     break;
             }
-            return View(await tarefasDbContext.AsNoTracking().ToListAsync());
 
-        }
+            int pageSize = 3;
+            return View(await PaginatedList<Funcionario>.CreateAsync(tarefasDbContext.AsNoTracking(), pageNumber ?? 1, pageSize));
+        
+
+    }
 
         // GET: Funcionarios/Details/5
         public async Task<IActionResult> Details(int? id)

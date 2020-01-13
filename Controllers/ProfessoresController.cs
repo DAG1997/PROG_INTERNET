@@ -20,11 +20,17 @@ namespace PROJETO_PNET.Controllers
         }
 
         // GET: Professores
-        public async Task<IActionResult> Index(String sortOrder)
+        public async Task<IActionResult> Index(String sortOrder, string searchString)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
             var tarefasDbContext = from s in _context.Professores
                            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tarefasDbContext = tarefasDbContext.Where(s => s.Nome.Contains(searchString));
+                                       
+            }
             switch (sortOrder)
             {
                 case "name_desc":

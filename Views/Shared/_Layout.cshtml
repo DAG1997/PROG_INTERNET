@@ -1,25 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
    
-    <title>@ViewData["Title"] - GestaoTarefasIPG</title>
+        <title>@ViewData["Title"] - GestaoTarefasIPG</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <!-- Bootstrap core CSS -->
+        <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     
-    <link href="~/css/freelancer.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/css/freelancer.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/site.css" />
     
-</head>
-
+    </head>
 
     <body id="page-top">
                 <!-- Navigation -->
@@ -41,15 +40,13 @@
                                 <li class="nav-item mx-0 mx-lg-1">
                                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" asp-area="" asp-controller="Cargos" asp-action="Index">Cargos</a>
                                 </li>
-                                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                                <li class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                                     <partial name="_LoginPartial" />
-                                </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
-               
-                            
                 
                 <div class="container-fluid p-0">
                     <!-- Portfolio Section-->
@@ -60,15 +57,13 @@
                     </section>
                 </div>
                 
-                
                 <div class="container">
                     <main role="main" class="pb-3">
                         @RenderBody()
                     </main>
             
                 </div>
-
-                <hr class="m-0">
+                <!-- <hr class="m-0"> -->
                             
                 <!-- Footer
                 <footer class="footer text-center">
@@ -76,7 +71,6 @@
                                  
                 </footer>
                 FIM DE FOOTER-->
-
 
                 <!--
                 <hr class="m-0">
@@ -86,8 +80,7 @@
                         <small>Copyright &copy; Your Website 2019</small>
                     </div>
                 </section>
-                -->
-                       
+                -->     
                 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
                 <div class="scroll-to-top d-lg-none position-fixed ">
                     <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
@@ -95,8 +88,7 @@
                     </a>
                 </div>
                 
-                        
-                     
+        
                 <div class="container">
                     &copy; 2020 - Gestão de Tarefas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                 </div>
@@ -124,4 +116,4 @@
 
                 @RenderSection("Scripts", required: false)
     </body>
-    </html>
+</html>

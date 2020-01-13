@@ -20,10 +20,36 @@ namespace PROJETO_PNET.Controllers
         }
 
         // GET: Funcionarios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(String sortOrder, string searchString)
         {
-            var tarefasDbContext = _context.Funcionarios.Include(f => f.Cargos);
-            return View(await tarefasDbContext.ToListAsync());
+            
+
+
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "cargos" : "";
+            ViewData["CurrentFilter"] = searchString;
+            var tarefasDbContext = from s in _context.Funcionarios.Include(f => f.Cargos)
+                                    select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tarefasDbContext = tarefasDbContext.Where(s => s.Nome.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    tarefasDbContext = tarefasDbContext.OrderByDescending(s => s.Nome);
+                    break;
+                case "cargos":
+                    tarefasDbContext = tarefasDbContext.OrderByDescending(s => s.Cargos);
+                    break;
+
+                default:
+                    tarefasDbContext = tarefasDbContext.OrderBy(s => s.Nome);
+                    break;
+            }
+            return View(await tarefasDbContext.AsNoTracking().ToListAsync());
+
         }
 
         // GET: Funcionarios/Details/5

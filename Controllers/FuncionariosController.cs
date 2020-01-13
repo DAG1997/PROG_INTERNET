@@ -40,10 +40,13 @@ namespace PROJETO_PNET.Controllers
                 searchString = currentFilter;
             }
 
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 tarefasDbContext = tarefasDbContext.Where(s => s.Nome.Contains(searchString));
             }
+
+
             switch (sortOrder)
             {
                 case "name_desc":

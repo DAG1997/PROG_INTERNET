@@ -20,10 +20,36 @@ namespace PROJETO_PNET.Controllers
         }
 
         // GET: Cargos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Cargos.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
+
+            var tarefasDbContext = from s in _context.Cargos
+                           select s;
+            if (!String.IsNullOrEmpty(searchString)) {
+                tarefasDbContext = tarefasDbContext.Where(s => s.NomeCargo.Contains(searchString)
+                                       || s.Funcao.Contains(searchString));
+            }
+
+
+            switch (sortOrder) {
+                case "name_desc":
+                    tarefasDbContext = tarefasDbContext.OrderByDescending(s => s.NomeCargo);
+                    break;
+                case "Date":
+                    tarefasDbContext = tarefasDbContext.OrderBy(s => s.Funcao);
+                    break;
+                
+                default:
+                    tarefasDbContext = tarefasDbContext.OrderBy(s => s.NomeCargo);
+                    break;
+            }
+            return View(await tarefasDbContext.AsNoTracking().ToListAsync());
+            
         }
+
+
 
         // GET: Cargos/Details/5
         public async Task<IActionResult> Details(int? id)

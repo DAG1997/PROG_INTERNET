@@ -8,7 +8,7 @@
 <h1>Lista de Cargos</h1>
 
 <p>
-    <a asp-action="Create">Criar Novo Cargo</a>
+    <a asp-action="Create">Adiconar novo Cargo</a>
 </p>
 
 <form asp-action="Index" method="get">
@@ -16,7 +16,7 @@
         <p>
             Procurar por nome: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
             <input type="submit" value="Procurar" class="btn btn-default" /> |
-            <a asp-action="Index">Voltar a Lista Completa</a>
+            <a asp-action="Index">Voltar à Lista</a>
         </p>
     </div>
 </form>
@@ -25,11 +25,11 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Nome Cargo</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Nome do Cargo</a>
             </th>
 
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Função</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Descrição</a>
             </th>
 
         </tr>

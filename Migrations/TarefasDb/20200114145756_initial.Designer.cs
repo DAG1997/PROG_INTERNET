@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROJETO_PNET.Data;
 
-namespace PROJETO_PNET.Migrations
+namespace PROJETO_PNET.Migrations.TarefasDb
 {
     [DbContext(typeof(TarefasDbContext))]
-    [Migration("20200112210132_Init")]
-    partial class Init
+    [Migration("20200114145756_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

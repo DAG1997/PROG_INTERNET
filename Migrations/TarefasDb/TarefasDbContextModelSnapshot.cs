@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROJETO_PNET.Data;
 
-namespace PROJETO_PNET.Migrations
+namespace PROJETO_PNET.Migrations.TarefasDb
 {
     [DbContext(typeof(TarefasDbContext))]
     partial class TarefasDbContextModelSnapshot : ModelSnapshot

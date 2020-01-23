@@ -18,6 +18,8 @@ namespace PROJETO_PNET.Models {
         public string Funcao  { get; set; }
 
         public ICollection<Funcionario> Funcionarios;
-        
+
+        public ICollection<Tarefa> Tarefas;
+
     }
 }

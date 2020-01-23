@@ -19,6 +19,8 @@ namespace PROJETO_PNET.Data {
 
             public DbSet<PROJETO_PNET.Models.Professores> Professores { get; set; }
 
+            public DbSet<PROJETO_PNET.Models.Tarefa> Tarefa { get; set; }
+
          
 
 

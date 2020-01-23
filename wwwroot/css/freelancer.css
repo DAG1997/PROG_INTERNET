@@ -2257,14 +2257,14 @@ fieldset:disabled a.btn {
 .btn-primary {
     color: #fff;
     background-color: #fd051d;
-    border-color: #747474;
+    border-color: #fd051d;
 }
 
-.btn-primary:hover {
-  color: #fff;
-  background-color: #159a80;
-  border-color: #148f77;
-}
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #2f3332;
+        border-color: #2f3332;
+    }
 
 .btn-primary:focus, .btn-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(60, 198, 171, 0.5);
@@ -2783,14 +2783,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-link {
-  font-weight: 400;
-  color: #1abc9c;
-  text-decoration: none;
+    font-weight: 400;
+    color: #343a40;
+    text-decoration: none;
 }
 
 .btn-link:hover {
-  color: #117964;
-  text-decoration: underline;
+    color: #343a40;
+    text-decoration: underline;
 }
 
 .btn-link:focus, .btn-link.focus {
@@ -3930,8 +3930,8 @@ input[type="button"].btn-block {
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1abc9c;
+    color: #fff;
+    background-color: #fd051d;
 }
 
 .nav-fill .nav-item {

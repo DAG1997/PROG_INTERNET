@@ -60,7 +60,7 @@ namespace PROJETO_PNET.Models {
                 await userManager.CreateAsync(user, ADMIN_PASSWORD);
             }
 
-            // Create other user accounts ...
+            // Create other user accounts ....
         }
 
         public static async Task CreateRolesAsync(RoleManager<IdentityRole> roleManager) {

@@ -9,8 +9,9 @@
 <h1>Lista de Funcionários</h1>
 
 <p>
-    <a asp-action="Create">Adicionar novo Funcionário</a>
-</p>
+    @if (User.IsInRole("manager") || User.IsInRole("admin")) {
+        <a asp-action="Create">Adicionar novo Funcionário</a>}
+    </p>
 
 <form asp-action="Index" method="get">
     <div class="form-actions no-color">

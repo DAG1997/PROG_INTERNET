@@ -9,8 +9,9 @@
 <h1>Lista de Professores</h1>
 
 <p>
-    <a asp-action="Create">Adicionar novo Professor</a>
-</p>
+    @if (User.IsInRole("manager") || User.IsInRole("admin")) {
+        <a asp-action="Create">Adicionar novo Professor</a>}
+    </p>
 
 
 <form asp-action="Index" method="get">

@@ -5,25 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Lista de Tarefas</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Adicionar Nova</a>
-</p>
+    @if (User.IsInRole("manager") || User.IsInRole("admin"))
+    {
+        <a asp-action="Create">Create New</a>}
+    </p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Procurar por nome: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Procurar" class="btn btn-default" /> |
+            <a asp-action="Index">Voltar à Lista</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nivel)
+                Nivel
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NomeTarefa)
+                Tarefa
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataTarefa)
+                Data da Tarefa
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Funcionario)
+                Nome do Funcionário
             </th>
             <th></th>
         </tr>

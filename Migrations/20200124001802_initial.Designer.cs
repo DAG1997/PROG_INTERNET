@@ -10,7 +10,7 @@ using PROJETO_PNET.Data;
 namespace PROJETO_PNET.Migrations
 {
     [DbContext(typeof(TarefasDbContext))]
-    [Migration("20200123235722_initial")]
+    [Migration("20200124001802_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,9 +104,6 @@ namespace PROJETO_PNET.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("FuncionarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Nivel")
                         .HasColumnType("int");
 
                     b.Property<string>("NomeTarefa")

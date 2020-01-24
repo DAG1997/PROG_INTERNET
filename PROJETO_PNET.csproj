@@ -8,19 +8,9 @@
 
   <ItemGroup>
     <Compile Remove="Microsoft\**" />
-    <Compile Remove="Migrations\**" />
     <Content Remove="Microsoft\**" />
-    <Content Remove="Migrations\**" />
     <EmbeddedResource Remove="Microsoft\**" />
-    <EmbeddedResource Remove="Migrations\**" />
     <None Remove="Microsoft\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Migrations\20200123235722_initial.cs" />
-    <Compile Include="Migrations\20200123235722_initial.Designer.cs" />
-    <Compile Include="Migrations\TarefasDbContextModelSnapshot.cs" />
   </ItemGroup>
 
 

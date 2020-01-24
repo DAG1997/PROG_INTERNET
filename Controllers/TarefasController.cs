@@ -57,7 +57,7 @@ namespace PROJETO_PNET.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TarefaId,Nivel,NomeTarefa,DataTarefa,FuncionarioId")] Tarefa tarefa)
+        public async Task<IActionResult> Create([Bind("TarefaId,NomeTarefa,DataTarefa,FuncionarioId")] Tarefa tarefa)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace PROJETO_PNET.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TarefaId,Nivel,NomeTarefa,DataTarefa,FuncionarioId")] Tarefa tarefa)
+        public async Task<IActionResult> Edit(int id, [Bind("TarefaId,NomeTarefa,DataTarefa,FuncionarioId")] Tarefa tarefa)
         {
             if (id != tarefa.TarefaId)
             {

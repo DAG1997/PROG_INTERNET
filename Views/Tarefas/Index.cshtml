@@ -27,16 +27,13 @@
     <thead>
         <tr>
             <th>
-                Nivel
-            </th>
-            <th>
                 Tarefa
             </th>
             <th>
-                Data da Tarefa
+                Data
             </th>
             <th>
-                Nome do Funcionário
+                Funcionário
             </th>
             <th></th>
         </tr>
@@ -44,9 +41,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nivel)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NomeTarefa)
             </td>
@@ -57,9 +51,9 @@
                 @Html.DisplayFor(modelItem => item.Funcionario.Nome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TarefaId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.TarefaId">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.TarefaId">Apagar</a>
+                <a asp-action="Edit" asp-route-id="@item.TarefaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TarefaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TarefaId">Delete</a>
             </td>
         </tr>
 }

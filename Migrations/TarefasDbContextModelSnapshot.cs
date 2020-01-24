@@ -104,9 +104,6 @@ namespace PROJETO_PNET.Migrations
                     b.Property<int>("FuncionarioId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Nivel")
-                        .HasColumnType("int");
-
                     b.Property<string>("NomeTarefa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

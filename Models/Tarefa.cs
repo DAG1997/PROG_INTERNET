@@ -11,11 +11,10 @@ namespace PROJETO_PNET.Models
     {
         public int TarefaId { get; set; }
 
-        public int Nivel { get; set; }
-
         [Required(ErrorMessage = "Por favor, introduza o nome da tarefa")]
         public string NomeTarefa { get; set; }
 
+        [Required(ErrorMessage = "Por favor, introduza quando a tarefa foi realizada")]
         public DateTime DataTarefa { get; set; }
 
         [Required(ErrorMessage = "Por favor, introduza o cargo a que a tarefa se destina")]

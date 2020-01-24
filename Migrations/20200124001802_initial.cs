@@ -63,7 +63,6 @@ namespace PROJETO_PNET.Migrations
                 {
                     TarefaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nivel = table.Column<int>(nullable: false),
                     NomeTarefa = table.Column<string>(nullable: false),
                     DataTarefa = table.Column<DateTime>(nullable: false),
                     FuncionarioId = table.Column<int>(nullable: false)

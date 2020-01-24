@@ -10,7 +10,7 @@ using PROJETO_PNET.Data;
 namespace PROJETO_PNET.Migrations
 {
     [DbContext(typeof(TarefasDbContext))]
-    [Migration("20200123231820_initial")]
+    [Migration("20200123235722_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
